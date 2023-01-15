@@ -1,0 +1,115 @@
+Cog2000 log file Mon Oct 17 12:35:53 2011
+GPrim v1.24 Compiled:Feb 24 2003 (GLib DirectDraw v7 Compiled:Feb 24 2003)
+Display:640x480x32 60.02Hz
+Attaching C:\MATLAB7\spain\paola\cogent2000\toolbox\CogInput.dll
+CogInput v1.04 Compiled: Apr  2 2002
+51	[51]	:	COGENT START
+8267	[8216]	:	8267   harina
+12366	[4099]	:	12366   trigo
+16386	[4020]	:	Key	97	DOWN	at	12583   
+16387	[1]	:	Key	97	UP	at	12724   
+16400	[13]	:	16400   cereales
+20417	[4017]	:	Key	97	DOWN	at	16860   
+20418	[1]	:	Key	97	UP	at	16989   
+20434	[16]	:	20433   gestarse
+24450	[4016]	:	Key	98	DOWN	at	20915   
+24451	[1]	:	Key	98	UP	at	21073   
+24467	[16]	:	24466   prado
+28483	[4016]	:	Key	98	DOWN	at	24970   
+28483	[0]	:	Key	98	UP	at	25116   
+28500	[17]	:	28499   granjero
+32516	[4016]	:	Key	98	DOWN	at	29112   
+32517	[1]	:	Key	98	UP	at	29247   
+32532	[15]	:	32532   cebada
+36549	[4017]	:	Key	97	DOWN	at	33466   
+36550	[1]	:	Key	97	UP	at	33601   
+36566	[16]	:	36566   maíz
+40582	[4016]	:	Key	97	DOWN	at	37286   
+40583	[1]	:	Key	97	UP	at	37444   
+40599	[16]	:	40599   tractor
+44615	[4016]	:	Key	97	DOWN	at	41177   
+44616	[1]	:	Key	97	UP	at	41358   
+44632	[16]	:	44632   semilla
+48648	[4016]	:	Key	97	DOWN	at	45108   
+48649	[1]	:	Key	97	UP	at	45243   
+48665	[16]	:	48665   arroz
+52682	[4017]	:	Key	98	DOWN	at	49415   
+52683	[1]	:	Key	98	UP	at	49567   
+52683	[0]	:	Key	98	DOWN	at	50634   
+52684	[1]	:	Key	98	UP	at	50757   
+52698	[14]	:	52698   cultivo
+56715	[4017]	:	Key	97	DOWN	at	53417   
+56716	[1]	:	Key	97	UP	at	53593   
+56732	[16]	:	56732   cosecha
+60748	[4016]	:	Key	97	DOWN	at	57325   
+60749	[1]	:	Key	97	UP	at	57495   
+60765	[16]	:	60765   maizal
+64781	[4016]	:	Key	97	DOWN	at	61321   
+64782	[1]	:	Key	97	UP	at	61491   
+98894	[34112]	:	Key	97	DOWN	at	65464   
+98894	[0]	:	Key	97	UP	at	65646   
+161206	[62312]	:	Key	37	DOWN	at	161206  
+164262	[3056]	:	164261   tipo
+170278	[6016]	:	Key	97	DOWN	at	165003  
+170279	[1]	:	Key	97	UP	at	165208  
+170295	[16]	:	170294   sujeto
+176311	[6016]	:	Key	97	DOWN	at	170985  
+176312	[1]	:	Key	97	UP	at	171144  
+176328	[16]	:	176327   dama
+182345	[6017]	:	Key	98	DOWN	at	176868  
+182346	[1]	:	Key	98	UP	at	177050  
+182361	[15]	:	182360   persona
+188377	[6016]	:	Key	98	DOWN	at	183226  
+188378	[1]	:	Key	98	UP	at	183366  
+188394	[16]	:	188394   individuo
+194410	[6016]	:	Key	97	DOWN	at	188903  
+194411	[1]	:	Key	97	UP	at	189067  
+194427	[16]	:	194427   acompañante
+200443	[6016]	:	Key	98	DOWN	at	195067  
+200444	[1]	:	Key	98	UP	at	195284  
+200460	[16]	:	200460   mujer
+206476	[6016]	:	Key	97	DOWN	at	201126  
+206477	[1]	:	Key	97	UP	at	201302  
+206493	[16]	:	206493   ser
+212510	[6017]	:	Key	97	DOWN	at	207179  
+212511	[1]	:	Key	97	UP	at	207349  
+212526	[15]	:	212526   hombre
+218543	[6017]	:	Key	97	DOWN	at	213167  
+218544	[1]	:	Key	97	UP	at	213319  
+218560	[16]	:	218560   compañero
+224576	[6016]	:	Key	97	DOWN	at	219249  
+224577	[1]	:	Key	97	UP	at	219413  
+224593	[16]	:	224593   traidor
+230609	[6016]	:	Key	97	DOWN	at	225232  
+230610	[1]	:	Key	97	UP	at	225401  
+230626	[16]	:	230626   relación
+236642	[6016]	:	Key	97	DOWN	at	231202  
+236644	[2]	:	Key	97	UP	at	231384  
+236659	[15]	:	236659   socio
+242676	[6017]	:	Key	97	DOWN	at	237167  
+242677	[1]	:	Key	97	UP	at	237331  
+242692	[15]	:	242692   colega
+248709	[6017]	:	Key	97	DOWN	at	243308  
+248710	[1]	:	Key	97	UP	at	243472  
+383857	[135147]	:	Key	70	DOWN	at	383857  
+384174	[317]	:	Key	56	DOWN	at	384174  
+384484	[310]	:	Key	56	UP	at	384484  
+385375	[891]	:	Key	70	UP	at	385375  
+386699	[1324]	:	Key	60	DOWN	at	386699  
+386700	[1]	:	Key	70	DOWN	at	386699  
+386987	[287]	:	Key	103	DOWN	at	386986  
+387093	[106]	:	Key	103	UP	at	387093  
+387175	[82]	:	Key	60	UP	at	387175  
+387176	[1]	:	Key	70	UP	at	387175  
+398173	[10997]	:	Key	52	DOWN	at	398173  
+398372	[199]	:	Key	52	UP	at	398372  
+404431	[6059]	:	Key	52	DOWN	at	404431  
+404630	[199]	:	Key	52	UP	at	404630  
+404724	[94]	:	Key	52	DOWN	at	404724  
+404876	[152]	:	Key	52	UP	at	404876  
+407261	[2385]	:	Key	60	DOWN	at	407261  
+407372	[111]	:	Key	70	DOWN	at	407372  
+407782	[410]	:	Key	56	DOWN	at	407782  
+408028	[246]	:	Key	56	UP	at	408028  
+408181	[153]	:	Key	56	DOWN	at	408181  
+408316	[135
