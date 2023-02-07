@@ -74,11 +74,11 @@ folder.
 
 # Fig. 1C- Amount of items recalled per SOA
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 # Fig. 1D- Oddballs vs controls output position
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -94,11 +94,11 @@ folder.
 
 # Fig. 2B Conditional Response Probability Curves
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 # Fig. 2D- 2E To vs from transitions from oddball items
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
     ## ANOVA Table (type III tests)
     ## 
@@ -128,7 +128,7 @@ folder.
     ## 3 CRPmean control oddball  -0.114 P           backwards    70    70 negligible
     ## 4 CRPmean control oddball   0.207 P           forwards     70    70 small
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
     ## ANOVA Table (type III tests)
     ## 
@@ -174,7 +174,7 @@ folder.
 
 # Fig. S1A,S1B, Table S1- Recall probability
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -208,7 +208,7 @@ folder.
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual  -0.275    70    70 small
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -238,11 +238,11 @@ folder.
 
 # Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 # Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
     ## 
     ##  Spearman's rank correlation rho
