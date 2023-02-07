@@ -9,16 +9,16 @@ Peris-Yague et al. 2021
     SOA](#fig-1c--amount-of-items-recalled-per-soa)
   - [Fig. 1D- Oddballs vs controls output
     position](#fig-1d--oddballs-vs-controls-output-position)
-  - [Fig. 2C- 2D To vs from transitions from oddball
-    items](#fig-2c--2d-to-vs-from-transitions-from-oddball-items)
+  - [Fig. 2B Conditional Response Probability
+    Curves](#fig-2b-conditional-response-probability-curves)
+  - [Fig. 2D- 2E To vs from transitions from oddball
+    items](#fig-2d--2e-to-vs-from-transitions-from-oddball-items)
   - [***Supplementary Material Figures and
     Analyses***](#supplementary-material-figures-and-analyses)
   - [Fig. S1A,S1B, Table S1- Recall
     probability](#fig-s1as1b-table-s1--recall-probability)
-  - [Fig. S2A Conditional Response Probability
-    Curves](#fig-s2a-conditional-response-probability-curves)
-  - [Fig. S2B Conditional Response Probability Curves by Stimulus Onset
-    Asynchrony](#fig-s2b-conditional-response-probability-curves-by-stimulus-onset-asynchrony)
+  - [Fig. S2 Conditional Response Probability Curves by Stimulus Onset
+    Asynchrony](#fig-s2-conditional-response-probability-curves-by-stimulus-onset-asynchrony)
   - [Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1
     recall](#fig-s3--correlation-of-lag--1-from-emotional-oddballs-with-e-1-recall)
   - [Output for JASP in table S3, S4, S5- recall probability by SOA
@@ -49,9 +49,13 @@ Peris-Yague et al. 2021
     ## 2           item   1  68 0.078 0.780       1.62e-04
     ## 3 list_type:item   1  68 2.070 0.155       6.00e-03
 
-# Fig. 2C- 2D To vs from transitions from oddball items
+# Fig. 2B Conditional Response Probability Curves
 
 ![](stats_figures_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+# Fig. 2D- 2E To vs from transitions from oddball items
+
+![](stats_figures_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
     ## ANOVA Table (type III tests)
     ## 
@@ -81,7 +85,7 @@ Peris-Yague et al. 2021
     ## 3 CRPmean control oddball  -0.114 P           backwards    70    70 negligible
     ## 4 CRPmean control oddball   0.207 P           forwards     70    70 small
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-4-2.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
     ## ANOVA Table (type III tests)
     ## 
@@ -127,7 +131,7 @@ Peris-Yague et al. 2021
 
 # Fig. S1A,S1B, Table S1- Recall probability
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -161,7 +165,7 @@ Peris-Yague et al. 2021
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual  -0.275    70    70 small
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -189,11 +193,7 @@ Peris-Yague et al. 2021
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual  -0.320    70    70 small
 
-# Fig. S2A Conditional Response Probability Curves
-
-![](stats_figures_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
-
-# Fig. S2B Conditional Response Probability Curves by Stimulus Onset Asynchrony
+# Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
 ![](stats_figures_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
@@ -214,11 +214,6 @@ Peris-Yague et al. 2021
 # Output for JASP in table S3, S4, S5- recall probability by SOA (view code)
 
 # Table S6- Emotional ratings
-
-    ## ANOVA Table (type III tests)
-    ## 
-    ##     Effect DFn DFd       F        p p<.05   pes
-    ## 1 salience   1  14 390.957 1.26e-11     * 0.965
 
     ## # A tibble: 1 × 10
     ##   .y.   group1 group2     n1    n2 statistic    df        p    p.adj p.adj.signif

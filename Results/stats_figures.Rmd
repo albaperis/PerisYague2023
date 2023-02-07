@@ -35,7 +35,7 @@ library(reshape2)
 # Fig. 1C- Amount of items recalled per SOA
 
 ```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 
 listrecallSOA<-read.csv('list_recall_SOA_R.csv')
 listrecallSOA<-as.data.frame(listrecallSOA)
@@ -85,7 +85,7 @@ list.per100.recall.SOA.fig2<-ggplot(data=listrecallSOAplot2, aes(x=as.factor(SOA
    #geom_hline(yintercept=50, linetype = 'dashed', color = 'grey')+
   theme_classic()+
   labs(x='Stimulus Onset Asynchrony', y='% items recalled')+
-  theme(text=element_text(size=17))+
+  theme(text=element_text(size=25))+
   scale_y_continuous(
   labels = scales::number_format(accuracy = 1))
 
@@ -96,7 +96,7 @@ list.per100.recall.SOA.fig2
 
 # Fig. 1D- Oddballs vs controls output position
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 
 oddballs<-read.csv('oddlists.csv')
 oddballs$enc_pos <- as.numeric(oddballs$enc_pos)
@@ -150,7 +150,7 @@ plot <- ggplot(data_summary, aes(fill=list_type, x=item, y=mean))+
   scale_y_continuous(breaks=c(1,2,3,4,5,6,7, 8, 9, 10, 11, 12, 13, 14))+
   labs(x='Item type', y='Output position')+
   theme_classic()+
-  theme(text=element_text(size=17))
+  theme(text=element_text(size=25))
   
 
 plot
@@ -181,12 +181,60 @@ get_anova_table(data_aov)
 ```
 
 
-# Fig. 2C- 2D To vs from transitions from oddball items
+# Fig. 2B Conditional Response Probability Curves
+
+
+```{r echo=FALSE,warning=FALSE, message=FALSE}
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+CRPall<-read.csv('CRP_all_R.csv')
+CRPall<-as.data.frame(CRPall)
+
+crpplot<-CRPall %>%
+  group_by(oddballtype,wordposition, direction) %>%
+  get_summary_stats(CRP,type='mean_ci')
+
+## This is needed to make the 'backwards' lags negative so that they plot
+# correctly 
+wpplot<-numeric(0)
+for (rows in 1:nrow(crpplot)){
+  if (crpplot$direction[rows] == "Backwards") {
+    wpplot[rows]<-(crpplot$wordposition[rows])*-1
+  }
+  else {wpplot[rows]<-(crpplot$wordposition[rows])
+  }
+}
+invisible(as.data.frame(wpplot))
+crpplot$wpplot<-wpplot
+
+pltCRP<-ggplot(crpplot,aes(x=wpplot,y=mean), group=oddballtype)+
+        geom_line(aes(color=oddballtype), size=1) +
+        geom_point(aes(color=oddballtype), size=2,) +
+        geom_ribbon(aes(x=wpplot, ymin=mean-ci, ymax=mean+ci, fill=oddballtype), alpha=0.3, show.legend = FALSE)+
+        #geom_errorbar(aes(ymin=mean-ci, ymax=mean+ci,color=oddballtype), alpha=0.5)+
+        theme_classic()+
+        facet_wrap(~ direction, scales='free_x', ncol=2)+    
+        theme(strip.background = element_blank())+
+        theme(text=element_text(size=25))+
+        #ggtitle('CRP all')+
+        xlab('Lag') +
+        ylab('Conditional Response Probability')+
+        scale_color_manual(values=c('violetred2','turquoise2'),aesthetics = c('colour','fill'), 
+        labels=c('Emotional','Perceptual'), name='Oddball List Type')+
+        scale_y_continuous(labels = scales::number_format(accuracy = 0.01))
+                    
+pltCRP
+
+```
+
+
+
+
+# Fig. 2D- 2E To vs from transitions from oddball items
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 
 # Transitions from oddballs 
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 TFCRP<-read.csv('ToFrom_CRP_R.csv')
 TFCRP<-as.data.frame(TFCRP)
 #head(TFCRP) #to show you what my raw data looks like 
@@ -265,7 +313,7 @@ pltTF<-ggplot(data,aes(x=wpplot,y=mean), group=oddballtype)+
   facet_grid(transition~direction, scales='free_x', 
             labeller=labeller(transition = as_labeller(transition.labs)))+   
   theme(strip.background = element_blank())+
-  theme(text=element_text(size=17))+
+  theme(text=element_text(size=25))+
   xlab('Lag') +
   ylab('Conditional Response Probability')+
   scale_color_manual(values=c('violetred2','turquoise2'), 
@@ -327,12 +375,12 @@ pltTF.collapsed<-ggplot(plt,aes(x=direction,y=mean, group=oddballtype, shape= it
    theme_classic()+
   facet_grid(~transition, scales='free_x', 
              labeller=labeller(transition = as_labeller(transition.labs)))+   
-  theme(text=element_text(size=17))+
+  theme(text=element_text(size=25))+
   theme(strip.background = element_blank())+
   xlab('Collapsed Lag (± 5 lags)') +
   ylab('Conditional Response Probability')+
   scale_color_manual(values=c('violetred2','turquoise2'), 
-                     labels=c('Emotional','Perceptual'), name='Oddball Type')+
+                     labels=c('Emotional','Perceptual'), name='Oddball List Type')+
   scale_shape_manual(name = "Item Type",
                      labels = c("Control", "Oddball"),
                      values=c(16,17)) 
@@ -405,7 +453,7 @@ bkwrd %>%
 # ***Supplementary Material Figures and Analyses***
 # Fig. S1A,S1B, Table S1- Recall probability
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 
 data<-read.csv('recall_probability_R.csv')
 data$recprob <- as.numeric(data$recprob)
@@ -586,57 +634,10 @@ path_out<- '/Raw_Results/'
 ```
 
 
-# Fig. S2A Conditional Response Probability Curves
-
-
-```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
-CRPall<-read.csv('CRP_all_R.csv')
-CRPall<-as.data.frame(CRPall)
-
-crpplot<-CRPall %>%
-  group_by(oddballtype,wordposition, direction) %>%
-  get_summary_stats(CRP,type='mean_ci')
-
-## This is needed to make the 'backwards' lags negative so that they plot
-# correctly 
-wpplot<-numeric(0)
-for (rows in 1:nrow(crpplot)){
-  if (crpplot$direction[rows] == "Backwards") {
-    wpplot[rows]<-(crpplot$wordposition[rows])*-1
-  }
-  else {wpplot[rows]<-(crpplot$wordposition[rows])
-  }
-}
-invisible(as.data.frame(wpplot))
-crpplot$wpplot<-wpplot
-
-pltCRP<-ggplot(crpplot,aes(x=wpplot,y=mean), group=oddballtype)+
-        geom_line(aes(color=oddballtype), size=1) +
-        geom_point(aes(color=oddballtype), size=2,) +
-        geom_ribbon(aes(x=wpplot, ymin=mean-ci, ymax=mean+ci, fill=oddballtype), alpha=0.3, show.legend = FALSE)+
-        #geom_errorbar(aes(ymin=mean-ci, ymax=mean+ci,color=oddballtype), alpha=0.5)+
-        theme_classic()+
-        facet_wrap(~ direction, scales='free_x', ncol=2)+    
-        theme(strip.background = element_blank())+
-        theme(text=element_text(size=17))+
-        #ggtitle('CRP all')+
-        xlab('Lag') +
-        ylab('Conditional Response Probability')+
-        scale_color_manual(values=c('violetred2','turquoise2'),aesthetics = c('colour','fill'), 
-        labels=c('Emotional','Perceptual'), name='Oddball List Type')+
-        scale_y_continuous(labels = scales::number_format(accuracy = 0.01))
-                    
-pltCRP
-
-```
-
-
-
-# Fig. S2B Conditional Response Probability Curves by Stimulus Onset Asynchrony
+# Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 CRPSOA<-read.csv('all_CRP_SOA_R.csv')
 CRPSOA<-as.data.frame(CRPSOA)
 
@@ -711,7 +712,7 @@ cor.test(corrplot$V1, corrplot$V2,  method = "spearman", use = "complete.obs")
 
 # Output for JASP in table S3, S4, S5- recall probability by SOA (view code)
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 
 data<-read.csv('recall_probability_SOA_R.csv')
 data$recprob <- as.numeric(data$recprob)
@@ -824,7 +825,7 @@ path_out<- '/Raw_Results/'
 
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 emorating<-read.csv('EmotionalRatings_preproc.csv')
 emorating<-as.data.frame(emorating)
 
@@ -845,12 +846,6 @@ demographics.sd <- sd(demographics) #sd 24.04
 data  <- emorating %>%
     group_by(subject, salience) %>%
     get_summary_stats(rating, type = 'mean_ci')
-
-emorating_aov<-anova_test(data=data, dv=mean, wid=subject,
-                 within=c(salience), effect.size = 'pes'
-                 )
-
-get_anova_table(emorating_aov) 
 
 data %>%
   pairwise_t_test(mean~salience, paired=TRUE, p.adjust.method='fdr')
@@ -874,7 +869,7 @@ path_out<-'/Raw_Results/'
 
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 semrating<-read.csv('SemanticRelatedness_preproc.csv')
 semrating<-as.data.frame(semrating)
 
