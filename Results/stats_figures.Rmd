@@ -1,12 +1,12 @@
 ---
 title: "Emotional salience modulates the forward flow of memory"
-author: "Peris-Yague et al. 2021"
+author: "Peris-Yague et al. 2023"
 date: "8/17/2021"
 output: 
-  html_document:
-    df_print: paged
   github_document:
     toc: true
+  html_document:
+    df_print: paged
   pdf_document: default
   word_document: default
 ---

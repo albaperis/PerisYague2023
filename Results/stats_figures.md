@@ -1,6 +1,6 @@
 Emotional salience modulates the forward flow of memory
 ================
-Peris-Yague et al. 2021
+Peris-Yague et al. 2023
 8/17/2021
 
   - [***Manuscript Figures and
@@ -44,10 +44,10 @@ Peris-Yague et al. 2021
 
     ## ANOVA Table (type III tests)
     ## 
-    ##           Effect DFn DFd     F     p p<.05      ges
-    ## 1      list_type   1  68 0.006 0.937       1.66e-05
-    ## 2           item   1  68 0.078 0.780       1.62e-04
-    ## 3 list_type:item   1  68 2.070 0.155       6.00e-03
+    ##           Effect DFn DFd     F     p p<.05      pes
+    ## 1      list_type   1  68 0.006 0.937       9.21e-05
+    ## 2           item   1  68 0.078 0.780       1.00e-03
+    ## 3 list_type:item   1  68 2.070 0.155       3.00e-02
 
 # Fig. 2B Conditional Response Probability Curves
 
@@ -55,37 +55,7 @@ Peris-Yague et al. 2021
 
 # Fig. 2D- 2E To vs from transitions from oddball items
 
-![](stats_figures_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
-
-    ## ANOVA Table (type III tests)
-    ## 
-    ##                            Effect DFn DFd      F        p p<.05   pes
-    ## 1                     oddballtype   1  69  7.989 0.006000     * 0.104
-    ## 2                       item_type   1  69  5.747 0.019000     * 0.077
-    ## 3                       direction   1  69  1.215 0.274000       0.017
-    ## 4           oddballtype:item_type   1  69 14.558 0.000293     * 0.174
-    ## 5           oddballtype:direction   1  69  0.108 0.744000       0.002
-    ## 6             item_type:direction   1  69  0.089 0.767000       0.001
-    ## 7 oddballtype:item_type:direction   1  69  3.919 0.052000       0.054
-
-    ## # A tibble: 4 × 12
-    ##   oddballtype direction .y.     group1  group2    n1    n2 statistic    df     p
-    ## * <fct>       <fct>     <chr>   <chr>   <chr>  <int> <int>     <dbl> <dbl> <dbl>
-    ## 1 E           backwards CRPmean control oddba…    70    70    -1.85     69 0.068
-    ## 2 E           forwards  CRPmean control oddba…    70    70    -3.23     69 0.002
-    ## 3 P           backwards CRPmean control oddba…    70    70    -0.956    69 0.343
-    ## 4 P           forwards  CRPmean control oddba…    70    70     1.73     69 0.088
-    ## # … with 2 more variables: p.adj <dbl>, p.adj.signif <chr>
-
-    ## # A tibble: 4 × 9
-    ##   .y.     group1  group2  effsize oddballtype direction    n1    n2 magnitude 
-    ## * <chr>   <chr>   <chr>     <dbl> <fct>       <fct>     <int> <int> <ord>     
-    ## 1 CRPmean control oddball  -0.222 E           backwards    70    70 small     
-    ## 2 CRPmean control oddball  -0.386 E           forwards     70    70 small     
-    ## 3 CRPmean control oddball  -0.114 P           backwards    70    70 negligible
-    ## 4 CRPmean control oddball   0.207 P           forwards     70    70 small
-
-![](stats_figures_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->![](stats_figures_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
     ## ANOVA Table (type III tests)
     ## 
