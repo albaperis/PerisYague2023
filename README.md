@@ -1,6 +1,6 @@
 Emotional salience modulates the forward flow of memory
 ================
-Peris-Yague et al. 2021
+Peris-Yague et al. 2023
 /17/2021
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
@@ -39,46 +39,15 @@ This work is licensed under a
   - [Table S6- Emotional ratings](#table-s6--emotional-ratings)
   - [Table S7- Semantic ratings](#table-s7--semantic-ratings)
 
-To preprocess the raw data and re-organize the data run:
-
-  - v1SOA\_preprocessing\_alldata
-  - v1SOA\_preprocessing\_CRP
-
-This will create output matrices that will be saved in the code folder
-and later called for the analyses.
-
-You must also download this toolbox:
-<http://memory.psych.upenn.edu/Behavioral_toolbox> Some of the analyses
-use functions from the toolbox, for which, the path in Matlab must be
-changed.
-
-The following scripts allow you to obtain the results. The raw results
-will be .csv files which are saved in Raw\_Results and will later be
-used in an R notebook to run the statistics and obtain the figures.
-
-  
-  - CRP\_lag\_analyses.m (CRP lag curve analyses)
-  - probability_recall.m (probability of recall)
-  - check_encoding_recall.m (find when the oddballs and controls were recalled)
-  - list_recall_SOA.m (calculate how many items are recalled per list per SOA)
-  - CRP_lag_analyses_controlwords.m (CRP analyses for control items)
-  - CRP_lag_analyses_bySOA.m (CRP lag curves by SOA)
-
-Once the above scripts have all been run, to obtain the statistical
-results and the figures run the following R markdown in the ‘Results’
-folder.
-
-  - stats\_figures.Rmd
-
 # ***Manuscript Figures and Analyses***
 
 # Fig. 1C- Amount of items recalled per SOA
 
-![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 # Fig. 1D- Oddballs vs controls output position
 
-![](README_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -87,48 +56,18 @@ folder.
 
     ## ANOVA Table (type III tests)
     ## 
-    ##           Effect DFn DFd     F     p p<.05      ges
-    ## 1      list_type   1  68 0.006 0.937       1.66e-05
-    ## 2           item   1  68 0.078 0.780       1.62e-04
-    ## 3 list_type:item   1  68 2.070 0.155       6.00e-03
+    ##           Effect DFn DFd     F     p p<.05      pes
+    ## 1      list_type   1  68 0.006 0.937       9.21e-05
+    ## 2           item   1  68 0.078 0.780       1.00e-03
+    ## 3 list_type:item   1  68 2.070 0.155       3.00e-02
 
 # Fig. 2B Conditional Response Probability Curves
 
-![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 # Fig. 2D- 2E To vs from transitions from oddball items
 
-![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
-
-    ## ANOVA Table (type III tests)
-    ## 
-    ##                            Effect DFn DFd      F        p p<.05   pes
-    ## 1                     oddballtype   1  69  7.989 0.006000     * 0.104
-    ## 2                       item_type   1  69  5.747 0.019000     * 0.077
-    ## 3                       direction   1  69  1.215 0.274000       0.017
-    ## 4           oddballtype:item_type   1  69 14.558 0.000293     * 0.174
-    ## 5           oddballtype:direction   1  69  0.108 0.744000       0.002
-    ## 6             item_type:direction   1  69  0.089 0.767000       0.001
-    ## 7 oddballtype:item_type:direction   1  69  3.919 0.052000       0.054
-
-    ## # A tibble: 4 × 12
-    ##   oddballtype direction .y.     group1  group2    n1    n2 statistic    df     p
-    ## * <fct>       <fct>     <chr>   <chr>   <chr>  <int> <int>     <dbl> <dbl> <dbl>
-    ## 1 E           backwards CRPmean control oddba…    70    70    -1.85     69 0.068
-    ## 2 E           forwards  CRPmean control oddba…    70    70    -3.23     69 0.002
-    ## 3 P           backwards CRPmean control oddba…    70    70    -0.956    69 0.343
-    ## 4 P           forwards  CRPmean control oddba…    70    70     1.73     69 0.088
-    ## # … with 2 more variables: p.adj <dbl>, p.adj.signif <chr>
-
-    ## # A tibble: 4 × 9
-    ##   .y.     group1  group2  effsize oddballtype direction    n1    n2 magnitude 
-    ## * <chr>   <chr>   <chr>     <dbl> <fct>       <fct>     <int> <int> <ord>     
-    ## 1 CRPmean control oddball  -0.222 E           backwards    70    70 small     
-    ## 2 CRPmean control oddball  -0.386 E           forwards     70    70 small     
-    ## 3 CRPmean control oddball  -0.114 P           backwards    70    70 negligible
-    ## 4 CRPmean control oddball   0.207 P           forwards     70    70 small
-
-![](README_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->![](stats_figures_files/figure-gfm/unnamed-chunk-5-2.png)<!-- -->
 
     ## ANOVA Table (type III tests)
     ## 
@@ -174,7 +113,7 @@ folder.
 
 # Fig. S1A,S1B, Table S1- Recall probability
 
-![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -208,7 +147,7 @@ folder.
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual  -0.275    70    70 small
 
-![](README_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
     ## # A tibble: 1 × 4
     ##     df1   df2 statistic     p
@@ -238,11 +177,11 @@ folder.
 
 # Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 # Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall
 
-![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](stats_figures_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
     ## 
     ##  Spearman's rank correlation rho
@@ -284,3 +223,4 @@ folder.
     ##   .y.   group1    group2     effsize    n1    n2 magnitude
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual   -1.47    14    14 large
+

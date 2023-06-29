@@ -1,7 +1,7 @@
 Emotional salience modulates the forward flow of memory
 ================
 Peris-Yague et al. 2023
-8/17/2021
+29/6/2023
 
   - [***Manuscript Figures and
     Analyses***](#manuscript-figures-and-analyses)
