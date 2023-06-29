@@ -170,7 +170,7 @@ output.QQ<-ggqqplot(data_stats,'mean',ggtheme=theme_bw())+
 data_stats %>% levene_test(mean ~ list_type*item)
 
 data_aov<-anova_test(data=data_stats, dv=mean, wid=subject,
-                 within=c(list_type,item),
+                 within=c(list_type,item), effect.size = 'pes',
                  )
 get_anova_table(data_aov) 
 
@@ -214,7 +214,7 @@ pltCRP<-ggplot(crpplot,aes(x=wpplot,y=mean), group=oddballtype)+
         theme_classic()+
         facet_wrap(~ direction, scales='free_x', ncol=2)+    
         theme(strip.background = element_blank())+
-        theme(text=element_text(size=25))+
+        theme(text=element_text(size=15))+#25))+
         #ggtitle('CRP all')+
         xlab('Lag') +
         ylab('Conditional Response Probability')+
@@ -313,7 +313,7 @@ pltTF<-ggplot(data,aes(x=wpplot,y=mean), group=oddballtype)+
   facet_grid(transition~direction, scales='free_x', 
             labeller=labeller(transition = as_labeller(transition.labs)))+   
   theme(strip.background = element_blank())+
-  theme(text=element_text(size=25))+
+  theme(text=element_text(size=15))+#25))+
   xlab('Lag') +
   ylab('Conditional Response Probability')+
   scale_color_manual(values=c('violetred2','turquoise2'), 
@@ -350,19 +350,19 @@ CRP_odd_v_ctrl$item_type <- as.factor(CRP_odd_v_ctrl$item_type)
 #ggqqplot(CRP_odd_v_ctrl,'CRPmean',ggtheme=theme_bw())+
  # facet_grid(oddballtype~item_type+direction, labeller='label_both')
 
-crp.3way <- anova_test(data=CRP_odd_v_ctrl, dv=CRPmean, wid=subject,
-                 within=c(oddballtype,item_type,direction), effect.size = 'pes'
-                 )
-get_anova_table(crp.3way) 
+#crp.3way <- anova_test(data=CRP_odd_v_ctrl, dv=CRPmean, wid=subject,
+  #               within=c(oddballtype,item_type,direction), effect.size = 'pes'
+ #                )
+#get_anova_table(crp.3way) 
 
 #post-hoc tests
-CRP_odd_v_ctrl %>%
-  group_by(oddballtype,direction) %>%
-  pairwise_t_test(CRPmean~item_type, paired=TRUE, p.adjust.method='fdr')
+#CRP_odd_v_ctrl %>%
+ # group_by(oddballtype,direction) %>%
+#  pairwise_t_test(CRPmean~item_type, paired=TRUE, p.adjust.method='fdr')
 
-CRP_odd_v_ctrl %>%
-  group_by(oddballtype,direction) %>%
-  cohens_d(CRPmean~item_type, paired=TRUE)
+#CRP_odd_v_ctrl %>%
+  #group_by(oddballtype,direction) %>%
+ # cohens_d(CRPmean~item_type, paired=TRUE)
 
 ###
 
@@ -375,7 +375,7 @@ pltTF.collapsed<-ggplot(plt,aes(x=direction,y=mean, group=oddballtype, shape= it
    theme_classic()+
   facet_grid(~transition, scales='free_x', 
              labeller=labeller(transition = as_labeller(transition.labs)))+   
-  theme(text=element_text(size=25))+
+  theme(text=element_text(size=15))+#25))+
   theme(strip.background = element_blank())+
   xlab('Collapsed Lag (± 5 lags)') +
   ylab('Conditional Response Probability')+
