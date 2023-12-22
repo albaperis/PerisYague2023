@@ -141,7 +141,7 @@ figures needed in this manuscript.
 
 # ***Supplementary Material Figures and Analyses*** 
 
-# Fig. S1A,S1B, S1C, S1D, Table S1- Recall probability
+# Fig. S1A,S1B,S1C,S1D, Table S1- Recall probability
 
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
