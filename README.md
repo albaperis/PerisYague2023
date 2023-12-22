@@ -19,13 +19,13 @@ This repository can be used to reproduce the code from the manuscript Emotional 
 
 [here]: https://osf.io/preprints/psyarxiv/m59nb 
 
-How is this repository organized? 
+# **How is this repository organized?** 
 
 Under /Raw_data, you can find the raw data obtained from each participant. Under /Raw_Results you can find the csv and mat files obtained from the /Raw_data that are necessary to reproduce these results which are created with the matlab codes found under /Code. 
 
 Lastly, under /Results, you can find the R script stats_figures.Rmd which will load the files from /Raw_Results to reproduce the exact figures needed in this manuscript. 
 
-How can I get started? 
+# **How can I get started?**
 
   - v1SOA_preprocessing_alldata.m will output a .mat file called alldata which can then be used to:
       - Calculate overall recall by SOA (list_recall_SOA.m)
@@ -134,7 +134,7 @@ How can I get started?
 
 # ***Supplementary Material Figures and Analyses***
 
-# Fig. S1A,S1B, Table S1- Recall probability
+# Fig. S1A,S1B, S1C, S1D, Table S1- Recall probability
 
 ![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
@@ -197,14 +197,19 @@ How can I get started?
     ##   .y.   group1    group2     effsize    n1    n2 magnitude
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual  -0.320    70    70 small
-
-# Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
+    
+    
+![](README_files/figure-gfm/serial-position.png)<!-- -->
 
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
-# Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall
+# Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+# Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
     ## 
     ##  Spearman's rank correlation rho

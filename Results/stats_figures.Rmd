@@ -36,7 +36,7 @@ library(optimx) # this is relevant to use a different estimation model in the gl
 # Fig. 1C- Amount of items recalled per SOA
 
 ```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
 
 listrecallSOA<-read.csv('list_recall_SOA_R.csv')
 listrecallSOA<-as.data.frame(listrecallSOA)
@@ -97,7 +97,7 @@ list.per100.recall.SOA.fig2
 
 # Fig. 1D- Oddballs vs controls output position
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
 
 oddballs<-read.csv('oddlists.csv')
 oddballs$enc_pos <- as.numeric(oddballs$enc_pos)
@@ -186,7 +186,7 @@ get_anova_table(data_aov)
 
 
 ```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
 CRPall<-read.csv('CRP_all_R.csv')
 CRPall<-as.data.frame(CRPall)
 
@@ -661,13 +661,13 @@ recall.fig<-ggplot(recallplot, aes(fill=oddballtype, x=wordposition, y=normrec))
   labs(x='Word Position', y='Normalized Recall (- control)')+
   theme_classic()
 
-#recall.fig
+recall.fig
 ```
 
 # Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
 CRPSOA<-read.csv('all_CRP_SOA_R.csv')
 CRPSOA<-as.data.frame(CRPSOA)
 
@@ -717,7 +717,6 @@ pltCRPSOA
 
 # Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-
 # Can easily do a correlation on a subject by subject basis  ?? ¿¿ 
 em1_corr <- as.data.frame(subset(data.plt4.jitter, list_type == 'emotional' & item =='m1' & oddvctrl=='oddball')) #raw recall of E-1 items
 
@@ -729,7 +728,7 @@ corrplot<-as.data.frame(cbind(em1_corr$mean,lag_corr$CRP))
 # 12-12-23: For review, added lag + 1
 #lag_p1 <- as.data.frame(subset(TFCRP, oddballtype=='E' & transition == 'from' & direction=='Forwards' & wordposition == '1'))
 
-corrplot<-as.data.frame(cbind(em1_corr$mean,lag_p1$CRP))
+#corrplot<-as.data.frame(cbind(em1_corr$mean,lag_p1$CRP))
 
 
 # 12-12-23: For review, added the difference between lag -1 and lag + 1
@@ -753,7 +752,7 @@ corrplt<-ggplot(corrplot, aes(x=V1, y=V2))+
   geom_smooth(method=lm, se=FALSE, color='lightskyblue2')+
   #ggtitle('Correlation of E-1 normalized recall and transitions from E Odd (lag +1)')+
   #ylab('Lag +1 transitions from E Odd')+
-  ylab('Lag +1 transitions from E Odd')+
+  ylab('Lag 1-5 transitions from E Odd')+
   xlab('E-1 Probability of Recall')+
   theme_classic()+
   theme(strip.background = element_blank())+
@@ -766,7 +765,7 @@ cor.test(corrplot$V1, corrplot$V2,  method = "spearman", use = "complete.obs")
 
 # Output for JASP in table S3, S4, S5- recall probability by SOA (view code)
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
 
 data<-read.csv('recall_probability_SOA_R.csv')
 data$recprob <- as.numeric(data$recprob)

@@ -1,31 +1,32 @@
 Emotional salience modulates the forward flow of memory
 ================
 Peris-Yague et al. 2023
-29/6/2023
+8/17/2021
 
-  - [***Manuscript Figures and
-    Analyses***](#manuscript-figures-and-analyses)
-  - [Fig. 1C- Amount of items recalled per
-    SOA](#fig-1c--amount-of-items-recalled-per-soa)
-  - [Fig. 1D- Oddballs vs controls output
-    position](#fig-1d--oddballs-vs-controls-output-position)
-  - [Fig. 2B Conditional Response Probability
-    Curves](#fig-2b-conditional-response-probability-curves)
-  - [Fig. 2D- 2E To vs from transitions from oddball
-    items](#fig-2d--2e-to-vs-from-transitions-from-oddball-items)
-  - [***Supplementary Material Figures and
-    Analyses***](#supplementary-material-figures-and-analyses)
-  - [Fig. S1A,S1B, Table S1- Recall
-    probability](#fig-s1as1b-table-s1--recall-probability)
-  - [Fig. S2 Conditional Response Probability Curves by Stimulus Onset
-    Asynchrony](#fig-s2-conditional-response-probability-curves-by-stimulus-onset-asynchrony)
-  - [Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1
-    recall](#fig-s3--correlation-of-lag--1-from-emotional-oddballs-with-e-1-recall)
-  - [Output for JASP in table S3, S4, S5- recall probability by SOA
-    (view
-    code)](#output-for-jasp-in-table-s3-s4-s5--recall-probability-by-soa-view-code)
-  - [Table S6- Emotional ratings](#table-s6--emotional-ratings)
-  - [Table S7- Semantic ratings](#table-s7--semantic-ratings)
+- [***Manuscript Figures and
+  Analyses***](#manuscript-figures-and-analyses)
+- [Fig. 1C- Amount of items recalled per
+  SOA](#fig-1c--amount-of-items-recalled-per-soa)
+- [Fig. 1D- Oddballs vs controls output
+  position](#fig-1d--oddballs-vs-controls-output-position)
+- [Fig. 2B Conditional Response Probability
+  Curves](#fig-2b-conditional-response-probability-curves)
+- [Fig. 2D- 2E To vs from transitions from oddball
+  items](#fig-2d--2e-to-vs-from-transitions-from-oddball-items)
+- [***Supplementary Material Figures and
+  Analyses***](#supplementary-material-figures-and-analyses)
+- [Fig. S1A,S1B, Table S1- Recall
+  probability](#fig-s1as1b-table-s1--recall-probability)
+- [Fig. S1C Normalized Recall](#fig-s1c-normalized-recall)
+- [Fig. S2 Conditional Response Probability Curves by Stimulus Onset
+  Asynchrony](#fig-s2-conditional-response-probability-curves-by-stimulus-onset-asynchrony)
+- [Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1
+  recall](#fig-s3--correlation-of-lag--1-from-emotional-oddballs-with-e-1-recall)
+- [Output for JASP in table S3, S4, S5- recall probability by SOA (view
+  code)](#output-for-jasp-in-table-s3-s4-s5--recall-probability-by-soa-view-code)
+- [Table S6- Emotional ratings](#table-s6--emotional-ratings)
+- [Table S7- Semantic ratings](#table-s7--semantic-ratings)
+- [Revisions for RSOS November 2023](#revisions-for-rsos-november-2023)
 
 # ***Manuscript Figures and Analyses***
 
@@ -69,7 +70,7 @@ Peris-Yague et al. 2023
     ## * <fct>       <chr>   <chr>   <chr>   <int> <int>     <dbl> <dbl> <dbl> <dbl>
     ## 1 E           CRPmean control oddball    70    70     -3.23    69 0.002 0.002
     ## 2 P           CRPmean control oddball    70    70      1.73    69 0.088 0.088
-    ## # … with 1 more variable: p.adj.signif <chr>
+    ## # ℹ 1 more variable: p.adj.signif <chr>
 
     ## # A tibble: 2 × 8
     ##   .y.     group1  group2  effsize oddballtype    n1    n2 magnitude
@@ -89,7 +90,7 @@ Peris-Yague et al. 2023
     ## * <fct>       <chr>   <chr>   <chr>   <int> <int>     <dbl> <dbl> <dbl> <dbl>
     ## 1 E           CRPmean control oddball    70    70    -1.85     69 0.068 0.068
     ## 2 P           CRPmean control oddball    70    70    -0.956    69 0.343 0.343
-    ## # … with 1 more variable: p.adj.signif <chr>
+    ## # ℹ 1 more variable: p.adj.signif <chr>
 
     ## # A tibble: 2 × 8
     ##   .y.     group1  group2  effsize oddballtype    n1    n2 magnitude 
@@ -116,19 +117,29 @@ Peris-Yague et al. 2023
     ## 3 list_type:item   1  69  2.038 1.58e-01       0.029
 
     ## # A tibble: 1 × 10
-    ##   .y.   group1  group2     n1    n2 statistic    df           p   p.adj p.adj.signif
-    ## * <chr> <chr>   <chr>   <int> <int>     <dbl> <dbl>       <dbl>   <dbl> <chr>       
-    ## 1 mean  control oddball    70    70     -5.92    69 0.000000112 1.12e-7 ****
+    ##   .y.   group1  group2     n1    n2 statistic    df       p   p.adj p.adj.signif
+    ## * <chr> <chr>   <chr>   <int> <int>     <dbl> <dbl>   <dbl>   <dbl> <chr>       
+    ## 1 mean  control oddball    70    70     -5.92    69 1.12e-7 1.12e-7 ****
 
     ## # A tibble: 1 × 7
     ##   .y.   group1  group2  effsize    n1    n2 magnitude
     ## * <chr> <chr>   <chr>     <dbl> <int> <int> <ord>    
     ## 1 mean  control oddball  -0.708    70    70 moderate
 
+    ## # A tibble: 4 × 6
+    ##   list_type  item    variable     n  mean    sd
+    ##   <fct>      <fct>   <fct>    <dbl> <dbl> <dbl>
+    ## 1 emotional  control mean        70 0.442 0.171
+    ## 2 perceptual control mean        70 0.514 0.188
+    ## 3 emotional  oddball mean        70 0.579 0.157
+    ## 4 perceptual oddball mean        70 0.6   0.169
+
+    ## [1] 0.2275442
+
     ## # A tibble: 1 × 10
-    ##   .y.   group1    group2        n1    n2 statistic    df     p p.adj p.adj.signif
-    ## * <chr> <chr>     <chr>      <int> <int>     <dbl> <dbl> <dbl> <dbl> <chr>       
-    ## 1 mean  emotional perceptual    70    70     -2.30    69 0.024 0.024 *
+    ##   .y.   group1    group2       n1    n2 statistic    df     p p.adj p.adj.signif
+    ## * <chr> <chr>     <chr>     <int> <int>     <dbl> <dbl> <dbl> <dbl> <chr>       
+    ## 1 mean  emotional perceptu…    70    70     -2.30    69 0.024 0.024 *
 
     ## # A tibble: 1 × 7
     ##   .y.   group1    group2     effsize    n1    n2 magnitude
@@ -154,22 +165,26 @@ Peris-Yague et al. 2023
     ## 7 list_type:oddvctrl:item   2 138 0.567 0.569       0.008
 
     ## # A tibble: 1 × 10
-    ##   .y.   group1    group2        n1    n2 statistic    df     p p.adj p.adj.signif
-    ## * <chr> <chr>     <chr>      <int> <int>     <dbl> <dbl> <dbl> <dbl> <chr>       
-    ## 1 mean  emotional perceptual    70    70     -2.68    69 0.009 0.009 **
+    ##   .y.   group1    group2       n1    n2 statistic    df     p p.adj p.adj.signif
+    ## * <chr> <chr>     <chr>     <int> <int>     <dbl> <dbl> <dbl> <dbl> <chr>       
+    ## 1 mean  emotional perceptu…    70    70     -2.68    69 0.009 0.009 **
 
     ## # A tibble: 1 × 7
     ##   .y.   group1    group2     effsize    n1    n2 magnitude
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual  -0.320    70    70 small
 
-# Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
+# Fig. S1C Normalized Recall
 
 ![](stats_figures_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
-# Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall
+# Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
 ![](stats_figures_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+# Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1 recall
+
+![](stats_figures_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
     ## 
     ##  Spearman's rank correlation rho
@@ -186,9 +201,9 @@ Peris-Yague et al. 2023
 # Table S6- Emotional ratings
 
     ## # A tibble: 1 × 10
-    ##   .y.   group1 group2     n1    n2 statistic    df        p    p.adj p.adj.signif
-    ## * <chr> <chr>  <chr>   <int> <int>     <dbl> <dbl>    <dbl>    <dbl> <chr>       
-    ## 1 mean  eodd   neutral    15    15     -19.8    14 1.26e-11 1.26e-11 ****
+    ##   .y.   group1 group2    n1    n2 statistic    df        p    p.adj p.adj.signif
+    ## * <chr> <chr>  <chr>  <int> <int>     <dbl> <dbl>    <dbl>    <dbl> <chr>       
+    ## 1 mean  eodd   neutr…    15    15     -19.8    14 1.26e-11 1.26e-11 ****
 
     ## # A tibble: 1 × 7
     ##   .y.   group1 group2  effsize    n1    n2 magnitude
@@ -197,17 +212,81 @@ Peris-Yague et al. 2023
 
 # Table S7- Semantic ratings
 
-    ## ANOVA Table (type III tests)
-    ## 
-    ##    Effect DFn DFd      F        p p<.05   pes
-    ## 1 oddtype   1  13 30.125 0.000104     * 0.699
-
     ## # A tibble: 1 × 10
-    ##   .y.   group1    group2        n1    n2 statistic    df       p   p.adj p.adj.signif
-    ## * <chr> <chr>     <chr>      <int> <int>     <dbl> <dbl>   <dbl>   <dbl> <chr>       
-    ## 1 mean  emotional perceptual    14    14     -5.49    13 1.04e-4 1.04e-4 ***
+    ##   .y.   group1   group2    n1    n2 statistic    df       p   p.adj p.adj.signif
+    ## * <chr> <chr>    <chr>  <int> <int>     <dbl> <dbl>   <dbl>   <dbl> <chr>       
+    ## 1 mean  emotion… perce…    14    14     -5.49    13 1.04e-4 1.04e-4 ***
 
     ## # A tibble: 1 × 7
     ##   .y.   group1    group2     effsize    n1    n2 magnitude
     ## * <chr> <chr>     <chr>        <dbl> <int> <int> <ord>    
     ## 1 mean  emotional perceptual   -1.47    14    14 large
+
+# Revisions for RSOS November 2023
+
+    ## Analysis of Deviance Table (Type III Wald chisquare tests)
+    ## 
+    ## Response: recall
+    ##                         Chisq Df Pr(>Chisq)    
+    ## (Intercept)           23.0928  1  1.544e-06 ***
+    ## item_who              11.9917  3  0.0074115 ** 
+    ## listtype               2.0406  1  0.1531539    
+    ## soa                   20.4077  4  0.0004149 ***
+    ## item_who:listtype      0.5256  3  0.9132340    
+    ## item_who:soa          10.7906 12  0.5469417    
+    ## listtype:soa           2.3245  4  0.6763148    
+    ## item_who:listtype:soa  2.8940 12  0.9962471    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+![](stats_figures_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->![](stats_figures_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
+
+    ## Analysis of Deviance Table (Type III Wald chisquare tests)
+    ## 
+    ## Response: recall
+    ##                               Chisq Df Pr(>Chisq)    
+    ## (Intercept)                  2.6468  1    0.10376    
+    ## item_who                    28.5757  3   2.75e-06 ***
+    ## listtype                     0.2532  1    0.61481    
+    ## semrating                    1.7192  1    0.18980    
+    ## item_who:listtype            2.0870  3    0.55454    
+    ## item_who:semrating           7.3795  3    0.06074 .  
+    ## listtype:semrating           0.1557  1    0.69311    
+    ## item_who:listtype:semrating  1.9168  3    0.58986    
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+![](stats_figures_files/figure-gfm/unnamed-chunk-13-3.png)<!-- -->![](stats_figures_files/figure-gfm/unnamed-chunk-13-4.png)<!-- -->
+
+    ##  contrast                                         estimate    SE  df z.ratio
+    ##  control semrating6.277585518591 effect              0.624 0.576 Inf   1.083
+    ##  control_minus_one semrating6.277585518591 effect   -0.911 1.129 Inf  -0.806
+    ##  oddball semrating6.277585518591 effect              0.439 0.579 Inf   0.759
+    ##  oddball_minus_one semrating6.277585518591 effect   -0.153 0.599 Inf  -0.255
+    ##  p.value
+    ##   0.5975
+    ##   0.5975
+    ##   0.5975
+    ##   0.7989
+    ## 
+    ## Results are averaged over the levels of: listtype 
+    ## Results are given on the log odds ratio (not the response) scale. 
+    ## P value adjustment: fdr method for 4 tests
+
+    ## Analysis of Deviance Table (Type III Wald chisquare tests)
+    ## 
+    ## Response: recall
+    ##                         Chisq Df Pr(>Chisq)   
+    ## (Intercept)            1.5782  1   0.209014   
+    ## item_who              10.9261  3   0.012132 * 
+    ## listtype               1.9130  1   0.166635   
+    ## soa                   14.9518  4   0.004802 **
+    ## semrating              4.0860  1   0.043239 * 
+    ## item_who:listtype      0.5475  3   0.908331   
+    ## item_who:soa          13.4777 12   0.335295   
+    ## listtype:soa           2.5075  4   0.643298   
+    ## item_who:listtype:soa  2.3899 12   0.998531   
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+![](stats_figures_files/figure-gfm/unnamed-chunk-13-5.png)<!-- -->
