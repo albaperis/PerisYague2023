@@ -1,8 +1,3 @@
----
-editor_options: 
-  markdown: 
-    wrap: 72
----
 
 # Emotional salience modulates the forward flow of memory
 
@@ -238,7 +233,7 @@ figures needed in this manuscript.
 ## -0.08396426
 ```
 
-# Output for JASP in table S3, S4, S5- recall probability by SOA (view code) {#output-for-jasp-in-table-s3-s4-s5--recall-probability-by-soa-view-code}
+# Output for JASP in table S3, S4, S5- recall probability by SOA (view code) 
 
 # Table S6- Emotional ratings {#table-s6--emotional-ratings}
 
