@@ -214,7 +214,7 @@ figures needed in this manuscript.
 ## 1 mean  emotional perceptual  -0.320    70    70 small
 ```
 
-![](README_files/figure-gfm/serial-position.png)<!-- -->
+![](README_files/figure-gfm/serial_position.png)<!-- -->
 
 ![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
