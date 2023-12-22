@@ -34,7 +34,7 @@ Lastly, under /Results, you can find the R script stats_figures.Rmd which will l
       - The probability of recall (probability_recall.m)
       - CRP analyses (CRP_lag_analyses.m and CRP_lag_abalyses_bySOA.m)
 
-
+# 
 
   - [***Manuscript Figures and
     Analyses***](#manuscript-figures-and-analyses)
@@ -199,9 +199,7 @@ Lastly, under /Results, you can find the R script stats_figures.Rmd which will l
     ## 1 mean  emotional perceptual  -0.320    70    70 small
     
     
-![](README_files/figure-gfm/serial-position.png)<!-- -->
-
-![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](README_files/figure-gfm/serial-position.png)<!-- -->![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
 # Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
