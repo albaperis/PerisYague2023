@@ -29,6 +29,7 @@ library(lme4)
 library(plyr)
 library(emmeans)
 library(reshape2)
+library(optimx) # this is relevant to use a different estimation model in the glmer  
 ```
 
 # ***Manuscript Figures and Analyses***
@@ -234,7 +235,7 @@ pltCRP
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 
 # Transitions from oddballs 
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 TFCRP<-read.csv('ToFrom_CRP_R.csv')
 TFCRP<-as.data.frame(TFCRP)
 #head(TFCRP) #to show you what my raw data looks like 
@@ -262,7 +263,7 @@ TFplot <- filter(TFplot, transition == 'from')
 TFplot <- droplevels(TFplot)
 
 # Transitions from controls 
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 TFCRPctrl<-read.csv('control_ToFrom_CRP_R.csv')
 TFCRPctrl<-as.data.frame(TFCRPctrl)
 #head(TFCRP) #to show you what my raw data looks like 
@@ -436,7 +437,7 @@ bkwrd %>%
 # ***Supplementary Material Figures and Analyses***
 # Fig. S1A,S1B, Table S1- Recall probability
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 
 data<-read.csv('recall_probability_R.csv')
 data$recprob <- as.numeric(data$recprob)
@@ -515,6 +516,18 @@ data.plt3.jitter %>%
   group_by(item,subject) %>%
   get_summary_stats(mean, type= 'mean_ci') %>%
   cohens_d(mean~item, paired=TRUE)
+
+#To calculate power of our oddball vs control effects: 
+data.plt3.jitter %>%
+       group_by(item,list_type) %>%
+       get_summary_stats(mean, type= 'mean_sd')
+
+#Find how our data is correlated for G*power
+x <- data.plt3.jitter[ which(data.plt3.jitter$item =='control'), ] # control items
+y <- data.plt3.jitter[ which(data.plt3.jitter$item =='oddball'), ] # oddballs 
+
+cor(x$mean,y$mean, method=c('pearson')) #0.227 
+      
 
 #post-hoc for list type
 data.plt3.jitter %>%
@@ -616,6 +629,40 @@ path_out<- '/Raw_Results/'
 
 ```
 
+# Fig. S1C Normalized Recall 
+
+```{r echo=FALSE,warning=FALSE, message=FALSE}
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+
+recall<-read.csv('normrec_R.csv')
+recall<-as.data.frame(recall)
+
+recall$subject<-factor(recall$subject)
+recall$oddballtype<-factor(recall$oddballtype)
+recall$wordposition<-factor(recall$wordposition)
+
+recallplot<-recall %>%
+  group_by(oddballtype,wordposition) %>%
+  get_summary_stats(normrec,type='mean_ci')
+recallplot <- dplyr::rename(recallplot, c('normrec' = mean))
+
+recall.fig<-ggplot(recallplot, aes(fill=oddballtype, x=wordposition, y=normrec))+
+  geom_bar(position='dodge', stat='identity')+
+  geom_errorbar(aes(x=wordposition, ymin=normrec-ci, ymax=normrec+ci), width=0.4, color='wheat4',
+                size=0.5, position=position_dodge(0.9), stat='identity')+ 
+  geom_jitter(data=recall,aes(color=oddballtype, x=wordposition, y=normrec),    position=position_jitterdodge(dodge.width=0.9), show.legend=FALSE, alpha=0.2)+
+  guides(col = FALSE)+
+  scale_color_manual(values=c('orchid', 'deepskyblue'))+
+  scale_fill_manual(values=c('thistle1','lightblue1'), labels=c('Emotional','Perceptual'), name='Oddball List Type')+
+  scale_x_discrete(
+    labels = c("Odd-2", "Odd-1", "Odd","Odd+1")
+  )+
+  #ggtitle('Normalized Recall')+
+  labs(x='Word Position', y='Normalized Recall (- control)')+
+  theme_classic()
+
+#recall.fig
+```
 
 # Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
@@ -676,14 +723,38 @@ em1_corr <- as.data.frame(subset(data.plt4.jitter, list_type == 'emotional' & it
 
 lag_corr <- as.data.frame(subset(CRP_odd_v_ctrl, oddballtype=='E' & transition == 'from' & direction=='forwards' & item_type == 'oddball'))
 
-corrplot<-as.data.frame(cbind(em1_corr$mean,lag_corr$CRPmean))
+corrplot<-as.data.frame(cbind(em1_corr$mean,lag_corr$CRP))
+
+
+# 12-12-23: For review, added lag + 1
+#lag_p1 <- as.data.frame(subset(TFCRP, oddballtype=='E' & transition == 'from' & direction=='Forwards' & wordposition == '1'))
+
+corrplot<-as.data.frame(cbind(em1_corr$mean,lag_p1$CRP))
+
+
+# 12-12-23: For review, added the difference between lag -1 and lag + 1
+#TFCRP$subject <- as.factor(TFCRP$subject)
+#TFCRP$oddballtype <- as.factor(TFCRP$oddballtype)
+#TFCRP$transition <- as.factor(TFCRP$transition)
+#TFCRP$direction <- as.factor(TFCRP$direction)
+#TFCRP$wordposition <- as.factor(TFCRP$wordposition)
+#TFCRP$CRP <- as.numeric(TFCRP$CRP)
+
+#lag_p1 <- as.data.frame(subset(TFCRP, oddballtype=='E' & transition == 'from' & direction=='Forwards' & wordposition == '1'))
+
+#lag_m1 <- as.data.frame(subset(TFCRP, oddballtype=='E' & transition == 'from' & direction=='Backwards' & wordposition == '1'))
+
+#lag_corr$CRPmean <- lag_p1$CRP - lag_m1$CRP
+
+#corrplot<-as.data.frame(cbind(em1_corr$mean,lag_corr$CRPmean))
 
 corrplt<-ggplot(corrplot, aes(x=V1, y=V2))+
   geom_point(shape=18, color='darksalmon')+
   geom_smooth(method=lm, se=FALSE, color='lightskyblue2')+
   #ggtitle('Correlation of E-1 normalized recall and transitions from E Odd (lag +1)')+
+  #ylab('Lag +1 transitions from E Odd')+
   ylab('Lag +1 transitions from E Odd')+
-  xlab('E-1 Recall')+
+  xlab('E-1 Probability of Recall')+
   theme_classic()+
   theme(strip.background = element_blank())+
   theme(text=element_text(size=17))
@@ -808,7 +879,7 @@ path_out<- '/Raw_Results/'
 
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 emorating<-read.csv('EmotionalRatings_preproc.csv')
 emorating<-as.data.frame(emorating)
 
@@ -852,7 +923,7 @@ path_out<-'/Raw_Results/'
 
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Raw_Results")
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
 semrating<-read.csv('SemanticRelatedness_preproc.csv')
 semrating<-as.data.frame(semrating)
 
@@ -876,11 +947,11 @@ data  <- semrating %>%
 
 data <-droplevels(data)
 
-semrating_aov<-anova_test(data=data, dv=mean, wid=subject,
-                 within=c(oddtype), effect.size = 'pes'
-                 )
+#semrating_aov<-anova_test(data=data, dv=mean, wid=subject,
+    #             within=c(oddtype), effect.size = 'pes'
+     #            )
 
-get_anova_table(semrating_aov) 
+#get_anova_table(semrating_aov) 
 
 data %>%
   pairwise_t_test(mean~oddtype, paired=TRUE, p.adjust.method='fdr')
@@ -896,6 +967,80 @@ words  <- semrating %>%
 
 path_out<-'/Raw_Results/'
 #write.csv(words,paste(path_out,'semantic_ratings_mean.csv',sep = ''))
+
+```
+
+# Revisions for RSOS November 2023
+``` {r echo=FALSE, warning=FALSE, message=FALSE}
+
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+
+# Load and prep the data 
+
+data<-read.csv('glmer_single_item_emotion.csv')
+
+data$subject <- as.factor(data$subject)
+data$recall <- as.factor(data$recall)
+data$item_who <- as.factor(data$item_who) 
+data$word_who <- as.factor(data$word_who)
+data$list <- as.factor(data$list) 
+data$soa <- as.factor(data$soa) 
+data$listtype <- as.factor(data$listtype) 
+
+# Load and prep the semantic ratings
+setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+semrating<-read.csv('SemanticRelatedness_preproc.csv')
+semrating<-as.data.frame(semrating)
+
+semrating$subject <- as.factor(semrating$subject)
+semrating$age <- as.numeric(semrating$age)
+semrating$gender <- as.factor(semrating$gender)
+semrating$word <- as.factor(semrating$word)
+semrating$list <- as.factor(semrating$list)
+semrating$oddtype <- as.factor(semrating$oddtype)
+semrating$rating <- as.numeric(semrating$rating)
+
+semrating <- droplevels(semrating)
+
+# average across subjects 
+semrating  <- semrating %>%
+    group_by(word) %>%
+    get_summary_stats(rating, type = 'mean_sd')
+
+#Note that there are less words in the data than in semrating. This is because in the data df we have only included oddballs and peri-oddballs of intererst. 
+
+#Find the semantic ratings for specific words in data
+
+data$semrating <- semrating$mean[match(data$word_who, semrating$word)]
+data$semrating <- as.numeric(data$semrating)
+
+# Glmer SOA 
+soa_glmer<-glmer(recall ~ item_who*listtype*soa + (1|subject), data = data, family = binomial, control = lmerControl(optimizer='optimx', optCtrl=list(method='nlminb')))
+Anova(soa_glmer,3) # Explanation of different ANOVA types here: https://www.r-bloggers.com/2011/03/anova-%E2%80%93-type-iiiiii-ss-explained/
+
+#These look a little bit odd or is it fine?? 
+plot(effect('item_who', soa_glmer))
+plot(effect('soa', soa_glmer))
+#plot(effect('item_who*soa', soa_glmer))
+
+# Glmer Semantic Ratings 
+semanticrating_glmer<-glmer(recall ~ item_who*listtype*semrating + (1|subject), data = data, family = binomial, control = lmerControl(optimizer='optimx', optCtrl=list(method='nlminb')))
+Anova(semanticrating_glmer,3)
+
+plot(effect('item_who', semanticrating_glmer)) # looks better
+plot(effect('item_who*semrating', semanticrating_glmer)) # it's a trend p=0.06, but I think the main point here is that the ones that seemt to be more modulated are the oddballs, controls and c-1 (not sure why controls and c-1), but not the odd-1 (hence smeantic ratings are not affecting retrograde amnesic effects)
+
+#is this the correct way of exploring the trend of an effect? 
+emm <- emmeans(semanticrating_glmer, ~item_who*semrating)
+contrast(emm)
+
+#Run a model with everything 
+
+glmer_all <- glmer(recall ~ item_who*listtype*soa+semrating + (1|subject), data = data, family = binomial, 
+                   lmerControl(optimizer='optimx', optCtrl=list(method='nlminb'))) # not quite working but idk why
+Anova(glmer_all,3)
+
+plot(effect('item_who', glmer_all))
 
 ```
 

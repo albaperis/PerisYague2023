@@ -15,6 +15,27 @@ This work is licensed under a
 [cc-by-nc-sa-shield]: https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg
 
 
+This repository can be used to reproduce the code from the manuscript Emotional salience modulates the forward flow of memory which can be accessed on PsyArXiv [here]. 
+
+[here]: https://osf.io/preprints/psyarxiv/m59nb 
+
+How is this repository organized? 
+
+Under /Raw_data, you can find the raw data obtained from each participant. Under /Raw_Results you can find the csv and mat files obtained from the /Raw_data that are necessary to reproduce these results which are created with the matlab codes found under /Code. 
+
+Lastly, under /Results, you can find the R script stats_figures.Rmd which will load the files from /Raw_Results to reproduce the exact figures needed in this manuscript. 
+
+How can I get started? 
+
+  - v1SOA_preprocessing_alldata.m will output a .mat file called alldata which can then be used to:
+      - Calculate overall recall by SOA (list_recall_SOA.m)
+      
+  - v1SOA_preprocessing_CRP.m will organize the data into 2 matrices used for most of other analyses (emotional_v1_CRP and    perceptual_v1_CRP as well as emo_ctrl and per_ctrl). Specifically:
+      - The probability of recall (probability_recall.m)
+      - CRP analyses (CRP_lag_analyses.m and CRP_lag_abalyses_bySOA.m)
+
+
+
   - [***Manuscript Figures and
     Analyses***](#manuscript-figures-and-analyses)
   - [Fig. 1C- Amount of items recalled per
@@ -38,6 +59,8 @@ This work is licensed under a
     code)](#output-for-jasp-in-table-s3-s4-s5--recall-probability-by-soa-view-code)
   - [Table S6- Emotional ratings](#table-s6--emotional-ratings)
   - [Table S7- Semantic ratings](#table-s7--semantic-ratings)
+
+
 
 # ***Manuscript Figures and Analyses***
 

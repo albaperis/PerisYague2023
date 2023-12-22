@@ -10,10 +10,10 @@
 %Lab which are avaibalable here: http://memory.psych.upenn.edu/Behavioral_toolbox
 
 clearvars; close all; clc
-dir=  %'/Code';
+dir=  '/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Code'; %'/Code';
 cd(dir)
 
-addpath(genpath('')) %Add here the path to the functions from http://memory.psych.upenn.edu/Behavioral_toolbox
+addpath(genpath('/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/behavioral_toolbox_release1.01')) %Add here the path to the functions from http://memory.psych.upenn.edu/Behavioral_toolbox
 
 load emotional_v1_CRP
 

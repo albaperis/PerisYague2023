@@ -12,10 +12,10 @@
 %Lab which are avaibalable here: http://memory.psych.upenn.edu/Behavioral_toolbox
 
 clearvars; close all; clc
-dir= %'/Code';
+dir= '/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Code'; %'/Code';
 cd(dir)
 
-addpath(genpath('')) %Add here the path to the functions from http://memory.psych.upenn.edu/Behavioral_toolbox
+addpath(genpath('/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/behavioral_toolbox_release1.01')) %Add here the path to the functions from http://memory.psych.upenn.edu/Behavioral_toolbox
 
 list_length = 14; 
 
@@ -24,6 +24,26 @@ list_length = 14;
 load emotional_v1_CRP
 
 positions = unique(emotional_v1_CRP(:,19)); %Get the possible encoding positions of the oddballs
+
+%% quick check of all
+all = []; 
+all = str2double(emotional_v1_CRP);
+
+all_emo_spc = spc(all(:,1:14), all(:,15), list_length);
+
+plot_spc(all_emo_spc); hold on 
+legend('Emotional')
+
+%mean(all_emo_spc)
+%std(all_emo_spc)
+
+all_emo_pfr = pfr(all(:,1:14), all(:,15), list_length);
+
+plot_spc(all_emo_pfr); hold on 
+legend('Emotional'); title('Probability of first recall')
+
+
+%%
 
 i= []; where = []; data = [];
 for i = 1:length(positions); 
@@ -44,6 +64,15 @@ e8_spc = spc(e8(:,1:14), e8(:,15), list_length);
 e9_spc = spc(e9(:,1:14), e9(:,15), list_length); 
 e11_spc = spc(e11(:,1:14), e11(:,15), list_length); 
 e12_spc = spc(e12(:,1:14), e12(:,15), list_length); 
+
+%%%%% Now check probability of first recall
+e7_pfr = pfr(e7(:,1:14), e7(:,15), list_length); 
+e8_pfr = pfr(e8(:,1:14), e8(:,15), list_length); 
+e9_pfr = pfr(e9(:,1:14), e9(:,15), list_length); 
+e11_pfr = pfr(e11(:,1:14), e11(:,15), list_length); 
+e12_pfr = pfr(e12(:,1:14), e12(:,15), list_length); 
+
+%plot_spc(e7_pfr);
 
 % Get the possible encoding positions for the control oddballs 
 load emo_ctrl
@@ -71,10 +100,36 @@ ce13_spc = spc(ce13(:,1:14), ce13(:,15), list_length);
 ce11_spc = spc(ce11(:,1:14), ce11(:,15), list_length); 
 ce12_spc = spc(ce12(:,1:14), ce12(:,15), list_length);
 
+%%%% Compute probability of first recall
+ce7_pfr = pfr(ce7(:,1:14), ce7(:,15), list_length); 
+ce8_pfr = pfr(ce8(:,1:14), ce8(:,15), list_length); 
+ce13_pfr = pfr(ce13(:,1:14), ce13(:,15), list_length); 
+ce11_pfr = pfr(ce11(:,1:14), ce11(:,15), list_length); 
+ce12_pfr = pfr(ce12(:,1:14), ce12(:,15), list_length);
+
+plot_spc(ce7_pfr);
+
 %%%%%% Get perceptual data %%%%% 
 
 load perceptual_v1_CRP
 positions = unique(perceptual_v1_CRP(:,19));
+
+%% plot all perceptual 
+all = []; 
+all = str2double(perceptual_v1_CRP);
+
+all_perc_spc = spc(all(:,1:14), all(:,15), list_length);
+
+plot_spc(all_perc_spc); hold on 
+legend('Perceptual')
+
+all_perc_pfr = pfr(all(:,1:14), all(:,15), list_length);
+
+plot_spc(all_perc_pfr); hold on 
+legend('Perceptual'); title('Probability of first recall')
+
+
+%%
 i= []; where = []; data = []; pos = []; 
 
 for i = 1:length(positions); 
@@ -95,6 +150,15 @@ p8_spc = spc(p8(:,1:14), p8(:,15), list_length);
 p9_spc = spc(p9(:,1:14), p9(:,15), list_length); 
 p11_spc = spc(p11(:,1:14), p11(:,15), list_length);
 p12_spc = spc(p12(:,1:14), p12(:,15), list_length);
+
+%%%% Probability of first recall 
+p7_pfr = pfr(p7(:,1:14), p7(:,15), list_length); 
+p8_pfr = pfr(p8(:,1:14), p8(:,15), list_length); 
+p9_pfr = pfr(p9(:,1:14), p9(:,15), list_length); 
+p11_pfr = pfr(p11(:,1:14), p11(:,15), list_length);
+p12_pfr = pfr(p12(:,1:14), p12(:,15), list_length);
+
+%plot_spc(p7_pfr); 
 
 % Get the possible encoding positions for the control oddballs 
 load per_ctrl
@@ -122,6 +186,14 @@ cp13_spc = spc(cp13(:,1:14), cp13(:,15), list_length);
 cp11_spc = spc(cp11(:,1:14), cp11(:,15), list_length); 
 cp12_spc = spc(cp12(:,1:14), cp12(:,15), list_length);
 
+%%% Probability of first recall
+
+cp7_pfr = pfr(cp7(:,1:14), cp7(:,15), list_length); 
+cp8_pfr = pfr(cp8(:,1:14), cp8(:,15), list_length); 
+cp13_pfr = pfr(cp13(:,1:14), cp13(:,15), list_length); 
+cp11_pfr = pfr(cp11(:,1:14), cp11(:,15), list_length); 
+cp12_pfr = pfr(cp12(:,1:14), cp12(:,15), list_length);
+
 %%%%%% Plot it %%%%% 
 
 emo.xtick = [1,3,5,7,9,11,14];
@@ -147,6 +219,29 @@ perc_ctrl.marker = {'star'};
 perc_ctrl.linecolor = {'blue'}; 
 perc_ctrl.extras = {'LineWidth',1,'MarkerEdgeColor','blue', 'MarkerFaceColor','blue'};
 
+%% Plot both 
+figure; 
+plot_spc(all_emo_spc, emo); hold on 
+plot_spc(all_perc_spc, perc); hold on 
+legend('Emotional', 'Perceptual'); 
+
+% Calculate together
+
+all = []; 
+all = [emotional_v1_CRP; perceptual_v1_CRP]; 
+
+all = str2double(all);
+
+all_spc = spc(all(:,1:14), all(:,15), list_length);
+
+plt.xtick = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+
+figure; plot_spc(all_spc, plt); 
+
+mean(all_spc)
+std(all_spc)
+
+%%
 % Emotional and Perceptual lists % 
 figure('Position', [198, 292, 802, 505]); 
 subplot(231); plot_spc(e7_spc,emo); title('Odd. encoding position = 7'); hold on 
@@ -285,6 +380,58 @@ dat= array2table(dat,'VariableNames',{'recprob','subject','encpos','list_type','
 
 cd '/Raw_Results'
 %writetable(dat,'recall_probability_R.csv')
+
+%% Now plot probability of first recall for data visualization purposes
+figure('Position', [198, 292, 802, 505]); 
+subplot(231); plot_spc(e7_pfr,emo); title('Odd. encoding position = 7'); hold on 
+              plot_spc(p7_pfr,perc); hold off
+              legend('Emotional','Perceptual')
+              
+subplot(232); plot_spc(e8_pfr,emo); title('Odd. encoding position = 8'); hold on 
+              plot_spc(p8_pfr,perc); hold off
+              legend('Emotional','Perceptual')
+              
+subplot(233); plot_spc(e9_pfr,emo); title('Odd. encoding position = 9'); hold on 
+              plot_spc(p9_pfr,perc); hold off
+              legend('Emotional', 'Perceptual')
+              
+subplot(234); plot_spc(e11_pfr,emo); title('Odd. encoding position = 11'); hold on 
+              plot_spc(p11_pfr,perc); hold off
+              legend('Emotional','Perceptual')
+              
+subplot(235); plot_spc(e12_pfr,emo); title('Odd. encoding position = 12'); hold on 
+              plot_spc(p12_pfr,perc); hold off
+              legend('Emotional','Perceptual')
+              
+sgtitle('Probability of first recall by serial position', 'fontweight', 'bold', 'fontsize',20); 
+
+% Now let's compare it to controls % 
+t=figure('Position', [198, 324, 1139, 473]); 
+subplot(221); plot_spc(e7_pfr,emo); title('Encoding position = 7'); hold on 
+              plot_spc(ce7_pfr,emo_ctrl); hold on 
+              plot_spc(p7_pfr,perc); hold on 
+              plot_spc(cp7_pfr,perc_ctrl); hold off
+              legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
+              
+subplot(222); plot_spc(e8_pfr,emo); title('Encoding position = 8'); hold on 
+              plot_spc(ce8_pfr,emo_ctrl); hold on 
+              plot_spc(p8_pfr,perc); hold on 
+              plot_spc(cp8_pfr,perc_ctrl); hold off
+              legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
+
+subplot(223); plot_spc(e11_pfr,emo); title('Encoding position = 11'); hold on 
+              plot_spc(ce11_pfr,emo_ctrl); hold on 
+              plot_spc(p11_pfr,perc); hold on
+              plot_spc(cp11_pfr,perc_ctrl); hold off
+              legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
+              
+subplot(224); plot_spc(e12_pfr,emo); title('Encoding position = 12'); hold on 
+              plot_spc(ce12_pfr,emo_ctrl); hold on 
+              plot_spc(p12_pfr,perc); hold on
+              plot_spc(cp12_pfr,perc_ctrl); hold off
+              legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
+                           
+sgtitle('Probability of first recall by serial position', 'fontweight', 'bold', 'fontsize',20); 
 
 %%
 %%%%%% Now let's plot it split by SOA  %%%%%% 
