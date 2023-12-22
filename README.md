@@ -34,7 +34,7 @@ Lastly, under /Results, you can find the R script stats_figures.Rmd which will l
       - The probability of recall (probability_recall.m)
       - CRP analyses (CRP_lag_analyses.m and CRP_lag_abalyses_bySOA.m)
 
-# 
+# **Table of contents**
 
   - [***Manuscript Figures and
     Analyses***](#manuscript-figures-and-analyses)
