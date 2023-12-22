@@ -53,7 +53,7 @@ figures needed in this manuscript.
     items](#fig-2d--2e-to-vs-from-transitions-from-oddball-items)
 -   [***Supplementary Material Figures and
     Analyses***](#supplementary-material-figures-and-analyses)
--   [Fig. S1A,S1B, S1C, S1D, Table S1- Recall
+-   [Fig. S1A,S1B,S1C,S1D, Table S1- Recall
     probability](#fig-s1as1bs1cs1d-table-s1--recall-probability)
 -   [Fig. S2 Conditional Response Probability Curves by Stimulus Onset
     Asynchrony](#fig-s2-conditional-response-probability-curves-by-stimulus-onset-asynchrony)
