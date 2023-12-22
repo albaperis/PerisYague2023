@@ -53,8 +53,8 @@ figures needed in this manuscript.
     items](#fig-2d--2e-to-vs-from-transitions-from-oddball-items)
 -   [***Supplementary Material Figures and
     Analyses***](#supplementary-material-figures-and-analyses)
--   [Fig. S1A,S1B, Table S1- Recall
-    probability](#fig-s1as1b-table-s1--recall-probability)
+-   [Fig. S1A,S1B, S1C, S1D, Table S1- Recall
+    probability](#fig-s1as1bs1cs1d-table-s1--recall-probability)
 -   [Fig. S2 Conditional Response Probability Curves by Stimulus Onset
     Asynchrony](#fig-s2-conditional-response-probability-curves-by-stimulus-onset-asynchrony)
 -   [Fig. S3- Correlation of lag + 1 from emotional oddballs with E-1
@@ -65,7 +65,7 @@ figures needed in this manuscript.
 -   [Table S6- Emotional ratings](#table-s6--emotional-ratings)
 -   [Table S7- Semantic ratings](#table-s7--semantic-ratings)
 
-# ***Manuscript Figures and Analyses*** {#manuscript-figures-and-analyses}
+# ***Manuscript Figures and Analyses*** 
 
 # Fig. 1C- Amount of items recalled per SOA
 
@@ -139,7 +139,7 @@ figures needed in this manuscript.
 ## 2 CRPmean control oddball  -0.114 P              70    70 negligible
 ```
 
-# ***Supplementary Material Figures and Analyses*** {#supplementary-material-figures-and-analyses}
+# ***Supplementary Material Figures and Analyses*** 
 
 # Fig. S1A,S1B, S1C, S1D, Table S1- Recall probability
 
@@ -235,7 +235,7 @@ figures needed in this manuscript.
 
 # Output for JASP in table S3, S4, S5- recall probability by SOA (view code) 
 
-# Table S6- Emotional ratings {#table-s6--emotional-ratings}
+# Table S6- Emotional ratings
 
 ```         
 ## # A tibble: 1 × 10
@@ -249,7 +249,7 @@ figures needed in this manuscript.
 ## 1 mean  eodd   neutral   -5.11    15    15 large
 ```
 
-# Table S7- Semantic ratings {#table-s7--semantic-ratings}
+# Table S7- Semantic ratings
 
 ```         
 ## ANOVA Table (type III tests)
