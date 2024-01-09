@@ -235,6 +235,7 @@ all = str2double(all);
 all_spc = spc(all(:,1:14), all(:,15), list_length);
 
 plt.xtick = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+plt.errorbars = std(all_spc); 
 
 figure; plot_spc(all_spc, plt); 
 
@@ -407,30 +408,58 @@ sgtitle('Probability of first recall by serial position', 'fontweight', 'bold', 
 
 % Now let's compare it to controls % 
 t=figure('Position', [198, 324, 1139, 473]); 
+
+% Add errorbars
+emo.errorbars = std(e7_pfr); 
+emo_ctrl.errorbars = std(ce7_pfr); 
+perc.errorbars = std(p7_pfr); 
+perc_ctrl.errorbars = std(cp7_pfr); 
+
 subplot(221); plot_spc(e7_pfr,emo); title('Encoding position = 7'); hold on 
               plot_spc(ce7_pfr,emo_ctrl); hold on 
               plot_spc(p7_pfr,perc); hold on 
               plot_spc(cp7_pfr,perc_ctrl); hold off
               legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
+              ylim([-0.2 0.7])
+              
+% Add errorbars
+emo.errorbars = std(e8_pfr); 
+emo_ctrl.errorbars = std(ce8_pfr); 
+perc.errorbars = std(p8_pfr); 
+perc_ctrl.errorbars = std(cp8_pfr);               
               
 subplot(222); plot_spc(e8_pfr,emo); title('Encoding position = 8'); hold on 
               plot_spc(ce8_pfr,emo_ctrl); hold on 
               plot_spc(p8_pfr,perc); hold on 
               plot_spc(cp8_pfr,perc_ctrl); hold off
               legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
-
+              ylim([-0.2 0.7])
+              
+% Add errorbars
+emo.errorbars = std(e11_pfr); 
+emo_ctrl.errorbars = std(ce11_pfr); 
+perc.errorbars = std(p11_pfr); 
+perc_ctrl.errorbars = std(cp11_pfr);
+              
 subplot(223); plot_spc(e11_pfr,emo); title('Encoding position = 11'); hold on 
               plot_spc(ce11_pfr,emo_ctrl); hold on 
               plot_spc(p11_pfr,perc); hold on
               plot_spc(cp11_pfr,perc_ctrl); hold off
               legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
+              ylim([-0.2 0.7])
+              
+% Add errorbars
+emo.errorbars = std(e12_pfr); 
+emo_ctrl.errorbars = std(ce12_pfr); 
+perc.errorbars = std(p12_pfr); 
+perc_ctrl.errorbars = std(cp12_pfr);              
               
 subplot(224); plot_spc(e12_pfr,emo); title('Encoding position = 12'); hold on 
               plot_spc(ce12_pfr,emo_ctrl); hold on 
               plot_spc(p12_pfr,perc); hold on
               plot_spc(cp12_pfr,perc_ctrl); hold off
               legend('Emotional oddball','Emotional control', 'Perceptual oddball', 'Perceptual control','location','northeastoutside')
-                           
+              ylim([-0.2 0.7])
 sgtitle('Probability of first recall by serial position', 'fontweight', 'bold', 'fontsize',20); 
 
 %%

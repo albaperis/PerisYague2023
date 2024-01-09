@@ -355,7 +355,7 @@ plt <- CRP_odd_v_ctrl %>%
   get_summary_stats(CRPmean, type = 'mean_ci')
 
 pltTF.collapsed<-ggplot(plt,aes(x=direction,y=mean, group=oddballtype, shape= item_type, color = oddballtype,  ymin=mean-ci, ymax=mean+ci))+
-    geom_pointrange(position=position_dodge2(width=0.5), size=1)+
+    geom_pointrange(position=position_dodge2(width=0.5), size=1, aes(linetype=item_type))+
    theme_classic()+
   facet_grid(~transition, scales='free_x', 
              labeller=labeller(transition = as_labeller(transition.labs)))+   
@@ -367,7 +367,8 @@ pltTF.collapsed<-ggplot(plt,aes(x=direction,y=mean, group=oddballtype, shape= it
                      labels=c('Emotional','Perceptual'), name='Oddball List Type')+
   scale_shape_manual(name = "Item Type",
                      labels = c("Control", "Oddball"),
-                     values=c(16,17)) 
+                     values=c(16,17)) + 
+  guides(linetype = FALSE) 
 
   pltTF.collapsed
   

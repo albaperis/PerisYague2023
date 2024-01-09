@@ -1,0 +1,116 @@
+Cog2000 log file Thu Sep 29 19:18:04 2011
+GPrim v1.24 Compiled:Feb 24 2003 (GLib DirectDraw v7 Compiled:Feb 24 2003)
+Display:640x480x32 59.99Hz
+Attaching C:\MATLAB7\spain\paola\cogent2000\toolbox\CogInput.dll
+CogInput v1.04 Compiled: Apr  2 2002
+7	[7]	:	COGENT START
+8162	[8155]	:	8162   encuentro
+10212	[2050]	:	10212   festival
+12231	[2019]	:	Key	59	DOWN	at	11054   
+12232	[1]	:	Key	59	UP	at	11130   
+12245	[13]	:	12245   estación
+14279	[2034]	:	14279   teatro
+16312	[2033]	:	16312   avión
+18328	[2016]	:	Key	59	DOWN	at	16626   
+18329	[1]	:	Key	59	UP	at	16726   
+18345	[16]	:	18345   estadio
+20378	[2033]	:	20378   metro
+22411	[2033]	:	22411   terminal
+24445	[2034]	:	24445   pasajero
+26478	[2033]	:	26478   aeropuerto
+28511	[2033]	:	28511   terrorista
+30544	[2033]	:	30544   público
+32561	[2017]	:	Key	98	DOWN	at	31286   
+32561	[0]	:	Key	98	UP	at	31380   
+32563	[2]	:	Key	98	DOWN	at	31503   
+32564	[1]	:	Key	98	UP	at	31579   
+32564	[0]	:	Key	98	DOWN	at	31702   
+32566	[2]	:	Key	98	UP	at	31784   
+32570	[4]	:	Key	98	DOWN	at	31907   
+32572	[2]	:	Key	98	UP	at	32006   
+32573	[1]	:	Key	98	DOWN	at	32112   
+32573	[0]	:	Key	98	UP	at	32212   
+32573	[0]	:	Key	98	DOWN	at	32353   
+32575	[2]	:	Key	98	UP	at	32470   
+32595	[20]	:	32594   concierto
+34611	[2016]	:	Key	98	UP	at	32705   
+34612	[1]	:	Key	98	DOWN	at	32840   
+34612	[0]	:	Key	98	UP	at	32940   
+34612	[0]	:	Key	98	DOWN	at	33069   
+34631	[19]	:	Key	98	UP	at	33186   
+34632	[1]	:	Key	98	DOWN	at	33321   
+34633	[1]	:	Key	98	UP	at	33438   
+34634	[1]	:	Key	98	DOWN	at	33561   
+34635	[1]	:	Key	98	UP	at	33678   
+34635	[0]	:	Key	98	DOWN	at	33819   
+34636	[1]	:	Key	98	UP	at	34106   
+34645	[9]	:	34645   tráfico
+36661	[2016]	:	Key	98	DOWN	at	35031   
+36662	[1]	:	Key	98	UP	at	35178   
+36663	[1]	:	Key	98	DOWN	at	36010   
+36663	[0]	:	Key	98	UP	at	36092   
+36664	[1]	:	Key	98	DOWN	at	36215   
+36665	[1]	:	Key	98	UP	at	36291   
+36666	[1]	:	Key	98	DOWN	at	36397   
+36667	[1]	:	Key	98	UP	at	36479   
+70748	[34081]	:	Key	98	DOWN	at	39285   
+70749	[1]	:	Key	98	UP	at	39385   
+70749	[0]	:	Key	98	DOWN	at	52944   
+70750	[1]	:	Key	98	UP	at	53026   
+70751	[1]	:	Key	98	DOWN	at	53096   
+70752	[1]	:	Key	98	UP	at	53184   
+70753	[1]	:	Key	98	DOWN	at	53254   
+70754	[1]	:	Key	98	UP	at	53330   
+70755	[1]	:	Key	98	DOWN	at	53412   
+70755	[0]	:	Key	98	UP	at	53477   
+70762	[7]	:	Key	98	DOWN	at	53547   
+70763	[1]	:	Key	98	UP	at	53653   
+70764	[1]	:	Key	98	DOWN	at	54133   
+70765	[1]	:	Key	98	UP	at	54238   
+70765	[0]	:	Key	98	DOWN	at	54350   
+70766	[1]	:	Key	98	UP	at	54455   
+70767	[1]	:	Key	98	DOWN	at	54572   
+70774	[7]	:	Key	98	UP	at	54625   
+70775	[1]	:	Key	98	DOWN	at	58217   
+70776	[1]	:	Key	98	UP	at	58369   
+70776	[0]	:	Key	98	DOWN	at	58510   
+70777	[1]	:	Key	98	UP	at	58586   
+70778	[1]	:	Key	98	DOWN	at	58686   
+70779	[1]	:	Key	98	UP	at	58768   
+70779	[0]	:	Key	98	DOWN	at	62196   
+70780	[1]	:	Key	98	UP	at	62313   
+70780	[0]	:	Key	98	DOWN	at	62811   
+70782	[2]	:	Key	98	UP	at	62910   
+70783	[1]	:	Key	98	DOWN	at	62981   
+70784	[1]	:	Key	98	UP	at	63104   
+70784	[0]	:	Key	98	DOWN	at	63209   
+70785	[1]	:	Key	98	UP	at	63285   
+70786	[1]	:	Key	98	DOWN	at	63455   
+70787	[1]	:	Key	98	UP	at	63520   
+70788	[1]	:	Key	98	DOWN	at	63660   
+70789	[1]	:	Key	98	UP	at	63737   
+76563	[5774]	:	Key	98	DOWN	at	76563   
+76821	[258]	:	Key	98	UP	at	76821   
+76914	[93]	:	Key	98	DOWN	at	76914   
+77008	[94]	:	Key	98	UP	at	77008   
+77096	[88]	:	Key	98	DOWN	at	77096   
+77160	[64]	:	Key	98	UP	at	77160   
+77248	[88]	:	Key	98	DOWN	at	77248   
+77301	[53]	:	Key	98	UP	at	77301   
+79000	[1699]	:	Key	59	DOWN	at	79000   
+79065	[65]	:	Key	59	UP	at	79065   
+102104	[23039]	:	Key	98	DOWN	at	102104  
+102174	[70]	:	Key	98	UP	at	102174  
+102279	[105]	:	Key	98	DOWN	at	102279  
+102362	[83]	:	Key	98	UP	at	102362  
+102449	[87]	:	Key	98	DOWN	at	102449  
+102543	[94]	:	Key	98	UP	at	102543  
+103569	[1026]	:	Key	98	DOWN	at	103569  
+103656	[87]	:	Key	98	UP	at	103656  
+103744	[88]	:	Key	98	DOWN	at	103744  
+103809	[65]	:	Key	98	UP	at	103809  
+103873	[64]	:	Key	98	DOWN	at	103873  
+103944	[71]	:	Key	98	UP	at	103944  
+104031	[87]	:	Key	98	DOWN	at	104031  
+104084	[53]	:	Key	98	UP	at	104084  
+1041
