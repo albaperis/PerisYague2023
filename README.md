@@ -17,6 +17,8 @@ This repository can be used to reproduce the code from the manuscript
 Emotional salience modulates the forward flow of memory which can be
 accessed on PsyArXiv [here](https://osf.io/preprints/psyarxiv/m59nb).
 
+This repository can also be found on OSF [here](https://osf.io/4rbeq/)
+
 # **How is this repository organized?**
 
 Under /Raw_data, you can find the raw data obtained from each
@@ -27,6 +29,8 @@ results which are created with the matlab codes found under /Code.
 Lastly, under /Results, you can find the R script stats_figures.Rmd
 which will load the files from /Raw_Results to reproduce the exact
 figures needed in this manuscript.
+
+JASP files used for Bayesian analyses can be found in the OSF repository [here] (https://osf.io/4rbeq/) under /Results/JASP_files_results.zip
 
 # **How can I get started?**
 
