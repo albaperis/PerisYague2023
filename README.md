@@ -3,7 +3,8 @@
 
 Peris-Yague et al. 2023 /17/2021
 
-DOI: 10.5281/zenodo.11122645
+[![DOI](https://zenodo.org/badge/589241737.svg)](https://zenodo.org/doi/10.5281/zenodo.11122644)
+
 
 Shield: [![CC BY-NC-SA
 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-nc-sa/4.0/)
