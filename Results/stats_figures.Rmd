@@ -36,7 +36,7 @@ library(optimx) # this is relevant to use a different estimation model in the gl
 # Fig. 1C- Amount of items recalled per SOA
 
 ```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Raw_Results")
 
 listrecallSOA<-read.csv('list_recall_SOA_R.csv')
 listrecallSOA<-as.data.frame(listrecallSOA)
@@ -92,12 +92,15 @@ list.per100.recall.SOA.fig2<-ggplot(data=listrecallSOAplot2, aes(x=as.factor(SOA
 
 list.per100.recall.SOA.fig2
 
+# Save the image as SVG
+
+ggsave('/Figures/Fig1C.svg', plot =list.per100.recall.SOA.fig2, width=8, height=5)
 ```
 
 
 # Fig. 1D- Oddballs vs controls output position
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Raw_Results")
 
 oddballs<-read.csv('oddlists.csv')
 oddballs$enc_pos <- as.numeric(oddballs$enc_pos)
@@ -178,6 +181,8 @@ get_anova_table(data_aov)
 
 #write.csv(data_stats,"/output.csv", row.names = FALSE)
 
+ggsave('/Figures/Fig1D.svg', plot =plot, width=8, height=5)
+
 
 ```
 
@@ -186,7 +191,7 @@ get_anova_table(data_aov)
 
 
 ```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Raw_Results")
 CRPall<-read.csv('CRP_all_R.csv')
 CRPall<-as.data.frame(CRPall)
 
@@ -225,6 +230,9 @@ pltCRP<-ggplot(crpplot,aes(x=wpplot,y=mean), group=oddballtype)+
                     
 pltCRP
 
+ggsave('/Figures/Fig2B.svg', plot =pltCRP, width=8, height=5)
+
+
 ```
 
 
@@ -235,7 +243,7 @@ pltCRP
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 
 # Transitions from oddballs 
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+setwd("/Raw_Results")
 TFCRP<-read.csv('ToFrom_CRP_R.csv')
 TFCRP<-as.data.frame(TFCRP)
 #head(TFCRP) #to show you what my raw data looks like 
@@ -314,7 +322,7 @@ pltTF<-ggplot(data,aes(x=wpplot,y=mean), group=oddballtype)+
   facet_grid(transition~direction, scales='free_x', 
             labeller=labeller(transition = as_labeller(transition.labs)))+   
   theme(strip.background = element_blank())+
-  theme(text=element_text(size=15))+#25))+
+  theme(text=element_text(size=17))+#25))+
   xlab('Lag') +
   ylab('Conditional Response Probability')+
   scale_color_manual(values=c('violetred2','turquoise2'), 
@@ -324,6 +332,9 @@ pltTF<-ggplot(data,aes(x=wpplot,y=mean), group=oddballtype)+
  
 
 pltTF
+
+ggsave('/Figures/Fig2D.svg', plot =pltTF, width=8, height=5)
+
 
 
 #Compare the averaged (+- 5 lags) transitions to and from the oddballs vs. the control items 
@@ -359,7 +370,7 @@ pltTF.collapsed<-ggplot(plt,aes(x=direction,y=mean, group=oddballtype, shape= it
    theme_classic()+
   facet_grid(~transition, scales='free_x', 
              labeller=labeller(transition = as_labeller(transition.labs)))+   
-  theme(text=element_text(size=15))+#25))+
+  theme(text=element_text(size=17))+#25))+
   theme(strip.background = element_blank())+
   xlab('Collapsed Lag (± 5 lags)') +
   ylab('Conditional Response Probability')+
@@ -430,6 +441,7 @@ bkwrd %>%
   group_by(oddballtype) %>%
   cohens_d(CRPmean~item_type, paired=TRUE)
 
+ggsave('/Figures/Fig2E.svg', plot =pltTF.collapsed, width=8, height=5)
 
 
 ```
@@ -438,7 +450,7 @@ bkwrd %>%
 # ***Supplementary Material Figures and Analyses***
 # Fig. S1A,S1B, Table S1- Recall probability
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+setwd("/Raw_Results")
 
 data<-read.csv('recall_probability_R.csv')
 data$recprob <- as.numeric(data$recprob)
@@ -486,6 +498,9 @@ plot3<-ggplot(data.plt3, aes(fill=list_type, x=item, y=mean))+
   theme(strip.background=element_blank(), text=element_text(size=17))
 
 plot3
+
+ggsave('/Figures/FigS1A.svg', plot =plot3, width=8, height=5)
+
 
 # Run an ANOVA 
 data.plt3.jitter <-as.data.frame(data.plt3.jitter)
@@ -575,7 +590,9 @@ plot4<-ggplot(data.plt4, aes(fill=list_type, x=item, y=mean))+
   theme(strip.background=element_blank(), text=element_text(size=17))
 
 plot4
-  
+
+ggsave('/Figures/FigS4B.svg', plot =plot4, width=8, height=5)
+
 
 data.plt4.jitter <- droplevels(data.plt4.jitter)
 data.plt4.jitter$item <- as.character(data.plt4.jitter$item)
@@ -633,7 +650,7 @@ path_out<- '/Raw_Results/'
 # Fig. S1C Normalized Recall 
 
 ```{r echo=FALSE,warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Raw_Results")
 
 recall<-read.csv('normrec_R.csv')
 recall<-as.data.frame(recall)
@@ -663,12 +680,15 @@ recall.fig<-ggplot(recallplot, aes(fill=oddballtype, x=wordposition, y=normrec))
   theme_classic()
 
 recall.fig
+
+ggsave('/Figures/FigS1C.svg', plot =recall.fig, width=8, height=5)
+
 ```
 
 # Fig. S2 Conditional Response Probability Curves by Stimulus Onset Asynchrony
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Raw_Results")
 CRPSOA<-read.csv('all_CRP_SOA_R.csv')
 CRPSOA<-as.data.frame(CRPSOA)
 
@@ -711,6 +731,9 @@ pltCRPSOA<-ggplot(CRPSOAplot,aes(x=wpplot,y=mean, group=SOA, color=as.factor(SOA
   labels = scales::number_format(accuracy = 0.01))
 
 pltCRPSOA
+
+ggsave('/Figures/FigS2.svg', plot =pltCRPSOA, width=8, height=5)
+
 
   
 ```
@@ -762,11 +785,14 @@ corrplt<-ggplot(corrplot, aes(x=V1, y=V2))+
 corrplt
 
 cor.test(corrplot$V1, corrplot$V2,  method = "spearman", use = "complete.obs")
+
+ggsave('/Figures/FigS3.svg', plot =corrplt, width=8, height=5)
+
 ``` 
 
 # Output for JASP in table S3, S4, S5- recall probability by SOA (view code)
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP/Raw_Results")
+setwd("/Raw_Results")
 
 data<-read.csv('recall_probability_SOA_R.csv')
 data$recprob <- as.numeric(data$recprob)
@@ -879,7 +905,7 @@ path_out<- '/Raw_Results/'
 
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+setwd("/Raw_Results")
 emorating<-read.csv('EmotionalRatings_preproc.csv')
 emorating<-as.data.frame(emorating)
 
@@ -923,7 +949,7 @@ path_out<-'/Raw_Results/'
 
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+setwd("/Raw_Results")
 semrating<-read.csv('SemanticRelatedness_preproc.csv')
 semrating<-as.data.frame(semrating)
 
@@ -973,7 +999,7 @@ path_out<-'/Raw_Results/'
 # Revisions for RSOS November 2023
 ``` {r echo=FALSE, warning=FALSE, message=FALSE}
 
-setwd("/Users/albaperis/OneDrive - UAM/PhDUPM_/Von Restroff WP3/Paper_github/Odd_SOA_CRP_Code_Reviewed/PerisYague2023/Raw_Results")
+setwd("/Raw_Results")
 
 # Load and prep the data 
 
